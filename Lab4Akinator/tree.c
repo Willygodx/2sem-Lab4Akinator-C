@@ -1,14 +1,14 @@
 #include "tree.h"
 
-struct treeNode *newTreeNode(char *text) {
-    struct treeNode *node = malloc(sizeof(struct treeNode));
+struct treeNode* newTreeNode(char* text) {
+    struct treeNode* node = malloc(sizeof(struct treeNode));
     node->text = text;
     node->noAnswer = NULL;
     node->yesAnswer = NULL;
     return node;
 }
 
-void saveTree(struct treeNode *treeRoot, FILE *saveFile) {
+void saveTree(struct treeNode* treeRoot, FILE* saveFile) {
     if (treeRoot == NULL) {
         fprintf(saveFile, "NULL");
         return;
@@ -18,7 +18,7 @@ void saveTree(struct treeNode *treeRoot, FILE *saveFile) {
     saveTree(treeRoot->noAnswer, saveFile);
 }
 
-void treeToFile(FILE *treeFile, struct treeNode *treeRoot) {
+void treeToFile(FILE* treeFile, struct treeNode* treeRoot) {
     if (treeRoot == NULL) {
         fprintf(treeFile, "NULL\n");
         return;
@@ -28,8 +28,8 @@ void treeToFile(FILE *treeFile, struct treeNode *treeRoot) {
     treeToFile(treeFile, treeRoot->noAnswer);
 }
 
-struct treeNode *fromFileToTree(FILE *treeFile) {
-    char *buffer = malloc(sizeof(char) * STRING_MAX_SIZE);
+struct treeNode* fromFileToTree(FILE* treeFile) {
+    char* buffer = malloc(sizeof(char) * STRING_MAX_SIZE);
     if (!fgets(buffer, STRING_MAX_SIZE, treeFile)) {
         return NULL;
     }
@@ -37,7 +37,7 @@ struct treeNode *fromFileToTree(FILE *treeFile) {
     if (strcmp(buffer, "NULL") == 0) {
         return NULL;
     }
-    struct treeNode *treeRoot = newTreeNode(buffer);
+    struct treeNode* treeRoot = newTreeNode(buffer);
     treeRoot->yesAnswer = fromFileToTree(treeFile);
     treeRoot->noAnswer = fromFileToTree(treeFile);
     return treeRoot;

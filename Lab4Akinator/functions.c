@@ -1,7 +1,7 @@
 #include "functions.h"
 #include "tree.h"
 
-char checkIfAnswer(const struct treeNode *treeNode) {
+char checkIfAnswer(const struct treeNode* treeNode) {
     if (treeNode->yesAnswer == NULL && treeNode->noAnswer == NULL) return 1;
     return 0;
 }
@@ -29,9 +29,9 @@ void freeMemoryOfTree(struct treeNode *treeRoot) {
     free(treeRoot);
 }
 
-struct treeNode *RunTroughTree(struct treeNode *treeNode, FILE *fileWithGame) {
+struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
     int answer = -1;
-    printf("Is it %s?\n", treeNode->text);
+    printf("%s?\n", treeNode->text);
     if (checkIfAnswer(treeNode)) {
         answer = checkInputFromLeftToRight(answer, 2);
         log(fileWithGame, NULL, &answer);
@@ -67,14 +67,14 @@ struct treeNode *RunTroughTree(struct treeNode *treeNode, FILE *fileWithGame) {
     }
 }
 
-FILE *copyLogFile() {
-    FILE *logFile = fopen("log.txt", "r");
+FILE* copyLogFile() {
+    FILE* logFile = fopen("log.txt", "r");
     if (logFile == NULL)
         exit(0);
-    FILE *tempLogFile = fopen("tempLog.txt", "w");
+    FILE* tempLogFile = fopen("tempLog.txt", "w");
     if (tempLogFile == NULL)
         exit(0);
-    char *buffer = malloc(sizeof(char) * STRING_MAX_SIZE);
+    char* buffer = malloc(sizeof(char) * STRING_MAX_SIZE);
     while (fgets(buffer, STRING_MAX_SIZE, logFile) != 0) {
         fprintf(tempLogFile, "%s", buffer);
     }

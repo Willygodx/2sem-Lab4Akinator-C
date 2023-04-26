@@ -1,6 +1,6 @@
 #include "tree.h"
 
-void log(FILE *treeFile, char *text, const int *value) {
+void log(FILE* treeFile, char* text, const int* value) {
     char buffer[256];
     fseek(treeFile, 0, SEEK_END);
     time_t timeInNumbers = time(NULL);

@@ -16,7 +16,7 @@ typedef struct treeNode {
 } treeNode;
 
 struct treeNode* newTreeNode(char* text);
-void treeToFile(FILE *treeFile, struct treeNode *treeRoot);
-struct treeNode* fromFileToTree(FILE *treeFile);
+void treeToFile(FILE* treeFile, struct treeNode* treeRoot);
+struct treeNode* fromFileToTree(FILE* treeFile);
 
 #endif //LAB4AKINATOR_TREE_H
