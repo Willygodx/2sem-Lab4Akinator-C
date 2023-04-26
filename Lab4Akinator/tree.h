@@ -10,6 +10,7 @@
 #include "log.h"
 #include "memory.h"
 #include "menu.h"
+#include "check.h"
 
 typedef struct treeNode {
     char* text;

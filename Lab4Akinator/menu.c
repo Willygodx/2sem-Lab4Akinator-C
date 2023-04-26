@@ -10,10 +10,10 @@ void menu(FILE* logFile, FILE* saveFile, struct treeNode* treeRoot)
             pTreeNode = RunTroughTree(pTreeNode, logFile);
         } while (pTreeNode != NULL);
         printf("Press 0 to continue our game! Press 1 to exit and save this game to a txt file.\n");
-        int temp = -1;
-        temp = checkInputFromLeftToRight(0, 1);
-        log(saveFile, NULL, &temp);
-        if(temp == 1) {
+        int chooseButton = 0;
+        checkValue(&chooseButton);
+        log(saveFile, NULL, &chooseButton);
+        if(chooseButton == 1) {
             FILE * file = fopen("binaryTree.txt","w");
             if (file == NULL)
                 exit(0);

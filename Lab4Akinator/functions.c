@@ -5,24 +5,11 @@ char checkIfAnswer(const struct treeNode* treeNode) {
     return 0;
 }
 
-int checkInputFromLeftToRight(int left, int right) {
-    while ((scanf("%d", &left)) != 1 || getchar() != '\n') {
-        printf("Error: wrong input!\n>");
-        rewind(stdin);
-    }
-    if (left < 0 || left > right) {
-        printf("Error: wrong input!\n>");
-        rewind(stdin);
-        left = checkInputFromLeftToRight(left, right);
-    } else return left;
-    return 0;
-}
-
 struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
-    int answer = -1;
+    int answer = 0;
     printf("%s?\n", treeNode->text);
     if (checkIfAnswer(treeNode)) {
-        answer = checkInputFromLeftToRight(0, 1);
+        checkValue(&answer);
         log(fileWithGame, NULL, &answer);
         rewind(stdin);
         if (answer == 1) {
@@ -46,7 +33,7 @@ struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
             return NULL;
         }
     } else {
-        answer = checkInputFromLeftToRight(0, 1);
+        checkValue(&answer);
         log(fileWithGame, NULL, &answer);
         rewind(stdin);
         if (answer == 1) return treeNode->noAnswer;
