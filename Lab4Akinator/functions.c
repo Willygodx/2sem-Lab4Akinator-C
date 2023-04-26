@@ -33,7 +33,7 @@ struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
     int answer = -1;
     printf("%s?\n", treeNode->text);
     if (checkIfAnswer(treeNode)) {
-        answer = checkInputFromLeftToRight(answer, 2);
+        answer = checkInputFromLeftToRight(0, 1);
         log(fileWithGame, NULL, &answer);
         rewind(stdin);
         if (answer == 1) {
@@ -59,7 +59,7 @@ struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
             return NULL;
         }
     } else {
-        answer = checkInputFromLeftToRight(answer, 2);
+        answer = checkInputFromLeftToRight(0, 1);
         log(fileWithGame, NULL, &answer);
         rewind(stdin);
         if (answer == 1) return treeNode->noAnswer;

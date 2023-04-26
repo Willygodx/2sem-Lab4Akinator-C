@@ -16,7 +16,7 @@ int main() {
         } while (pTreeNode != NULL);
         printf("Press 0 to continue our game! Press 1 to exit and save this game to a txt file.\n");
         int temp = -1;
-        temp = checkInputFromLeftToRight(temp, 2);
+        temp = checkInputFromLeftToRight(0, 1);
         log(saveFile, NULL, &temp);
         if(temp == 1) {
             FILE * file = fopen("binaryTree.txt","w");
