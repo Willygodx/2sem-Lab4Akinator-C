@@ -1,4 +1,4 @@
-#include "game.h"
+#include "functions.h"
 #include "tree.h"
 
 char checkIfAnswer(const struct treeNode *treeNode) {

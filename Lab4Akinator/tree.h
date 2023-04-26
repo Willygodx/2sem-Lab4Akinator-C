@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "game.h"
+#include "functions.h"
 #include "log.h"
 
 typedef struct treeNode {

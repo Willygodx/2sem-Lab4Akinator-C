@@ -1,5 +1,5 @@
-#ifndef LAB4AKINATOR_GAME_H
-#define LAB4AKINATOR_GAME_H
+#ifndef LAB4AKINATOR_FUNCTIONS_H
+#define LAB4AKINATOR_FUNCTIONS_H
 
 #include "tree.h"
 
@@ -9,4 +9,4 @@ int checkInputFromLeftToRight(int left, int right);
 FILE * copyLogFile();
 void freeMemoryOfTree(struct treeNode* treeRoot);
 
-#endif //LAB4AKINATOR_GAME_H
+#endif //LAB4AKINATOR_FUNCTIONS_H
