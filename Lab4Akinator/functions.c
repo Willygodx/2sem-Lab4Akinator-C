@@ -1,5 +1,4 @@
 #include "functions.h"
-#include "tree.h"
 
 char checkIfAnswer(const struct treeNode* treeNode) {
     if (treeNode->yesAnswer == NULL && treeNode->noAnswer == NULL) return 1;
@@ -19,16 +18,6 @@ int checkInputFromLeftToRight(int left, int right) {
     return 0;
 }
 
-void freeMemoryOfTree(struct treeNode *treeRoot) {
-    if (treeRoot == NULL) {
-        return;
-    }
-    freeMemoryOfTree(treeRoot->yesAnswer);
-    freeMemoryOfTree(treeRoot->noAnswer);
-    free(treeRoot->text);
-    free(treeRoot);
-}
-
 struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
     int answer = -1;
     printf("%s?\n", treeNode->text);
@@ -44,12 +33,10 @@ struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
             printf("Could you tell me what you wanted me to answer?\n");
             char *tempStringForTheAnswer = malloc(sizeof(char) * STRING_MAX_SIZE);
             fgets(tempStringForTheAnswer, STRING_MAX_SIZE, stdin);
-            tempStringForTheAnswer[strlen(tempStringForTheAnswer) - 1] = '\0';
             log(fileWithGame, tempStringForTheAnswer, NULL);
             printf("How can I differ this object?\n");
             char *mainString = malloc(sizeof(char) * STRING_MAX_SIZE);
             fgets(mainString, STRING_MAX_SIZE, stdin);
-            mainString[strlen(mainString) - 1] = '\0';
             log(fileWithGame, mainString, NULL);
             struct treeNode *tempTreeNode = newTreeNode(tempStringForTheAnswer);
             struct treeNode *treeNodeNew = newTreeNode(treeNode->text);

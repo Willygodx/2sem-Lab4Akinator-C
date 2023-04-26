@@ -7,6 +7,5 @@ char checkIfAnswer(const struct treeNode* treeNode);
 struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame);
 int checkInputFromLeftToRight(int left, int right);
 FILE* copyLogFile();
-void freeMemoryOfTree(struct treeNode* treeRoot);
 
 #endif //LAB4AKINATOR_FUNCTIONS_H

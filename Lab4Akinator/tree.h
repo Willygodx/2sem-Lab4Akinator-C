@@ -8,6 +8,8 @@
 #include <string.h>
 #include "functions.h"
 #include "log.h"
+#include "memory.h"
+#include "menu.h"
 
 typedef struct treeNode {
     char* text;

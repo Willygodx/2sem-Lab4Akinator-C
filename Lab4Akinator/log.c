@@ -7,6 +7,6 @@ void log(FILE* treeFile, char* text, const int* value) {
     struct tm timeFormat;
     localtime_r(&timeInNumbers, &timeFormat);
     strftime(buffer, 256, "%Y-%m-%d %H:%M:%S", &timeFormat);
-    if (value == NULL) fprintf(treeFile, "USERNAME INPUT: %s :TIME: %s :\n", text, buffer);
-    else if (text == NULL) fprintf(treeFile, "USERNAME INPUT: %d : TIME : %s :\n", *value, buffer);
+    if (value == NULL) fprintf(treeFile, "[%s]: username INPUT: %s\n", buffer, text);
+    else if (text == NULL) fprintf(treeFile, "[%s]: username INPUT: %d\n", buffer, *value);
 }
