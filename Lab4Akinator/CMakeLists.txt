@@ -3,4 +3,4 @@ project(Lab4Akinator C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Lab4Akinator main.c functions.c functions.h)
+add_executable(Lab4Akinator main.c tree.c tree.h game.h log.c log.h game.c)
