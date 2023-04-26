@@ -44,10 +44,16 @@ struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
 FILE* copyLogFile() {
     FILE* logFile = fopen("log.txt", "r");
     if (logFile == NULL)
-        exit(0);
+    {
+        fprintf(stderr, "Error: unable to open this file!\n");
+        exit(EXIT_FAILURE);
+    }
     FILE* tempLogFile = fopen("tempLog.txt", "w");
     if (tempLogFile == NULL)
-        exit(0);
+    {
+        fprintf(stderr, "Error: unable to open this file!\n");
+        exit(EXIT_FAILURE);
+    }
     char* buffer = malloc(sizeof(char) * STRING_MAX_SIZE);
     while (fgets(buffer, STRING_MAX_SIZE, logFile) != 0) {
         fprintf(tempLogFile, "%s", buffer);
@@ -56,10 +62,16 @@ FILE* copyLogFile() {
     fclose(logFile);
     logFile = fopen("log.txt", "w");
     if (logFile == NULL)
-        exit(0);
+    {
+        fprintf(stderr, "Error: unable to open this file!\n");
+        exit(EXIT_FAILURE);
+    }
     tempLogFile = fopen("tempLog.txt", "r");
     if (tempLogFile == NULL)
-        exit(0);
+    {
+        fprintf(stderr, "Error: unable to open this file!\n");
+        exit(EXIT_FAILURE);
+    }
     while (fgets(buffer, STRING_MAX_SIZE, tempLogFile) != 0) {
         fprintf(logFile, "%s", buffer);
     }

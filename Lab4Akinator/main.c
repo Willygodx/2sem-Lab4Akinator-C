@@ -5,7 +5,10 @@ int main() {
     FILE* logFile = copyLogFile();
     FILE* saveFile = fopen("binaryTree.txt", "r");
     if (saveFile == NULL)
-        exit(0);
+    {
+        fprintf(stderr, "Error: unable to open this file!\n");
+        exit(EXIT_FAILURE);
+    }
     struct treeNode* treeRoot = fromFileToTree(saveFile);
     fclose(saveFile);
     menu(logFile, saveFile, treeRoot);

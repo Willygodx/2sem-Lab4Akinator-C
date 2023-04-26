@@ -14,11 +14,14 @@ void menu(FILE* logFile, FILE* saveFile, struct treeNode* treeRoot)
         checkValue(&chooseButton);
         log(saveFile, NULL, &chooseButton);
         if(chooseButton == 1) {
-            FILE * file = fopen("binaryTree.txt","w");
-            if (file == NULL)
-                exit(0);
-            treeToFile(file, treeRoot);
-            fclose(file);
+            FILE* binaryFile = fopen("binaryTree.txt", "w");
+            if (binaryFile == NULL)
+            {
+                fprintf(stderr, "Error: unable to open this binaryFile!\n");
+                exit(EXIT_FAILURE);
+            }
+            treeToFile(binaryFile, treeRoot);
+            fclose(binaryFile);
             break;
         }
     }
