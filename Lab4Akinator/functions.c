@@ -7,6 +7,7 @@ char checkIfAnswer(const struct treeNode* treeNode) {
 
 struct treeNode* RunTroughTree(struct treeNode* treeNode, FILE* fileWithGame) {
     int answer = 0;
+
     printf("%s?\n", treeNode->text);
     if (checkIfAnswer(treeNode)) {
         checkValue(&answer);
